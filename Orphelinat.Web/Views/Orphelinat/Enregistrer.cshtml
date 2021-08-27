@@ -1,0 +1,136 @@
+﻿@model Orphelinat.Web.Models.OrphelinatModel
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- Basic -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Site Metas -->
+    <title>Orphelinat</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="@Url.Content("~/Content/images/favicon.ico")" type="image/x-icon">
+    <link rel="apple-touch-icon" href="@Url.Content("~/Content/images/apple-touch-icon.png")">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.min.css")">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/style1.css")">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/all.min.css")">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/responsive1.css")">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/custom.css")">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div id="particles-js" class="main-form-box">
+        <div class="md-form">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="panel panel-login w-100">
+                            <div class="logo-top">
+                                <a href="#"><img src="@Url.Content("~/Content/images/logo1.png")" alt="" /></a>
+                            </div>
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-6 col-xl-6" style="margin-left: auto; margin-right: auto;">
+                                        <a href="#" id="register-form-link">S'enregistrer</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        @using (Html.BeginForm("Enregistrer", "Orphelinat", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                        {
+                                            <div class="form-group">
+                                                <label class="icon-lp"><i class="fas fa-user-tie"></i></label>
+                                                <input type="text" name="@Html.NameFor(x => x.Nom)" id="@Html.NameFor(x => x.Nom)" class="form-control" placeholder="Nom orphelinat">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="icon-lp"><i class="fas fa-envelope"></i></label>
+                                                <input type="email" name="@Html.NameFor(x => x.Email)" id="@Html.NameFor(x => x.Email)" class="form-control" placeholder="Email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="icon-lp"><i class="fas fa-key"></i></label>
+                                                <input type="password" name="@Html.NameFor(x => x.MotDePasse)" id="@Html.NameFor(x => x.MotDePasse)" class="form-control" placeholder="Mot de passe" value="" required="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="icon-lp"><i class="fas fa-key"></i></label>
+                                                <input type="password" name="@Html.NameFor(x => x.NCMotDePasse)" id="@Html.NameFor(x => x.NCMotDePasse)" class="form-control" placeholder="Confirmer mot de passe">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="icon-lp"><i class="fa fa-phone"></i></label>
+                                                <input type="number" name="@Html.NameFor(x => x.Telephone)" id="@Html.NameFor(x => x.Telephone)" class="form-control" style="padding-left:50px;" placeholder="Telephone" min="0">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="icon-lp"><i class="fa fa-map-marker"></i></label>
+                                                <input type="text" name="@Html.NameFor(x => x.Adresse)" id="@Html.NameFor(x => x.Adresse)" class="form-control" placeholder="Adresse" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="icon-lp"><i class="fa fa-edit"></i></label>
+                                                <input type="text" name="@Html.NameFor(x => x.Devise)" id="@Html.NameFor(x => x.Devise)" class="form-control" placeholder="Devise">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="icon-lp"><i class="fas fa-images"></i></label>
+                                                <input type="file" name="@Html.NameFor(x => x.File)" id="@Html.NameFor(x => x.File)" style="padding-left:50px;" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="icon-lp"><i class="bi bi-calendar"></i></label>
+                                                <input type="date" name="@Html.NameFor(x => x.DateCreation)" id="@Html.NameFor(x => x.DateCreation)" class="form-control" placeholder="Date de création">
+                                            </div>
+                                            <div class="che-box">
+                                                <label class="checkbox-in">
+                                                    <input name="checkbox" type="checkbox"> <span></span>J'accepte les <a href="#"> termes et les conditions </a>
+                                                </label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-sm-6 mx-auto justify-content-center">
+                                                        <input type="submit" id="register-submit" class="form-control btn btn-register" value="S'enregistrer maintenant">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="@Url.Content("~/Scripts/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/particles.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/index.js")"></script>
+    <script type="text/javascript">
+        $("#register-form").delay(100).fadeIn(100);
+        $("#login-form").fadeOut(100);
+        $('#login-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    </script>
+</body>
+</html>

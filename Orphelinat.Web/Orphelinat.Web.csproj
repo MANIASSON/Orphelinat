@@ -43,7 +43,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -88,19 +100,268 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\all.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\images\about-bg.jpg" />
+    <Content Include="Content\images\about-img.png" />
+    <Content Include="Content\images\apple-touch-icon.png" />
+    <Content Include="Content\images\BEL ANGE.jpg" />
+    <Content Include="Content\images\bg_01.jpg" />
+    <Content Include="Content\images\brand-bg.jpg" />
+    <Content Include="Content\images\client-1.jpg" />
+    <Content Include="Content\images\client-2.jpg" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\hero-bg.png" />
+    <Content Include="Content\images\Liguen Lidjob.jpg" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logo1.png" />
+    <Content Include="Content\images\OSSoft.png" />
+    <Content Include="Content\images\p1.jpg" />
+    <Content Include="Content\images\p2.jpg" />
+    <Content Include="Content\images\p3.jpg" />
+    <Content Include="Content\images\p4.jpg" />
+    <Content Include="Content\images\p5.jpg" />
+    <Content Include="Content\images\p6.jpeg" />
+    <Content Include="Content\images\p7.jpg" />
+    <Content Include="Content\images\p8.jpg" />
+    <Content Include="Content\images\p9.jpg" />
+    <Content Include="Content\images\slider-img.png" />
+    <Content Include="Content\images\slider-img2.png" />
+    <Content Include="Content\images\slider-img3.png" />
+    <Content Include="Content\responsive.css" />
+    <Content Include="Content\responsive1.css" />
+    <Content Include="Content\style-responsive.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\style1.css" />
+    <Content Include="Content\style2.css" />
+    <Content Include="Content\table-responsive.css" />
+    <Content Include="Content\to-do.css" />
+    <Content Include="Content\zabuto_calendar.css" />
+    <Content Include="fonts\fa-brands-400.svg" />
+    <Content Include="fonts\fa-regular-400.svg" />
+    <Content Include="fonts\fa-solid-900.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="lib\advanced-datatable\css\demo_page.css" />
+    <Content Include="lib\advanced-datatable\css\demo_table.css" />
+    <Content Include="lib\advanced-datatable\css\demo_table_jui.css" />
+    <Content Include="lib\advanced-datatable\css\DT_bootstrap.css" />
+    <Content Include="lib\advanced-datatable\css\jquery.dataTables.css" />
+    <Content Include="lib\advanced-datatable\css\jquery.dataTables_themeroller.css" />
+    <Content Include="lib\advanced-datatable\images\back_disabled.png" />
+    <Content Include="lib\advanced-datatable\images\back_enabled.png" />
+    <Content Include="lib\advanced-datatable\images\back_enabled_hover.png" />
+    <Content Include="lib\advanced-datatable\images\details_close.png" />
+    <Content Include="lib\advanced-datatable\images\details_open.png" />
+    <Content Include="lib\advanced-datatable\images\favicon.ico" />
+    <Content Include="lib\advanced-datatable\images\forward_disabled.png" />
+    <Content Include="lib\advanced-datatable\images\forward_enabled.png" />
+    <Content Include="lib\advanced-datatable\images\forward_enabled_hover.png" />
+    <Content Include="lib\advanced-datatable\images\sort_asc.png" />
+    <Content Include="lib\advanced-datatable\images\sort_asc_disabled.png" />
+    <Content Include="lib\advanced-datatable\images\sort_both.png" />
+    <Content Include="lib\advanced-datatable\images\sort_desc.png" />
+    <Content Include="lib\advanced-datatable\images\sort_desc_disabled.png" />
+    <Content Include="lib\advanced-datatable\js\DT_bootstrap.js" />
+    <Content Include="lib\advanced-datatable\js\jquery.dataTables.js" />
+    <Content Include="lib\advanced-datatable\js\jquery.dataTables.min.js" />
+    <Content Include="lib\advanced-datatable\js\jquery.js" />
+    <Content Include="lib\advanced-form-components.js" />
+    <Content Include="lib\bootstrap-datepicker\css\datepicker.css" />
+    <Content Include="lib\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="lib\bootstrap-daterangepicker\date.js" />
+    <Content Include="lib\bootstrap-daterangepicker\daterangepicker-bs3.css" />
+    <Content Include="lib\bootstrap-daterangepicker\daterangepicker.css" />
+    <Content Include="lib\bootstrap-daterangepicker\daterangepicker.js" />
+    <Content Include="lib\bootstrap-daterangepicker\moment.min.js" />
+    <Content Include="lib\bootstrap-datetimepicker\css\datetimepicker.css" />
+    <Content Include="lib\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="lib\bootstrap-fileupload\bootstrap-fileupload.css" />
+    <Content Include="lib\bootstrap-fileupload\bootstrap-fileupload.js" />
+    <Content Include="lib\bootstrap-inputmask\bootstrap-inputmask.min.js" />
+    <Content Include="lib\bootstrap-switch.js" />
+    <Content Include="lib\bootstrap-timepicker\compiled\timepicker.css" />
+    <Content Include="lib\bootstrap-timepicker\js\bootstrap-timepicker.js" />
+    <Content Include="lib\bootstrap-wysihtml5\bootstrap-wysihtml5.css" />
+    <Content Include="lib\bootstrap-wysihtml5\bootstrap-wysihtml5.js" />
+    <Content Include="lib\bootstrap-wysihtml5\wysihtml5-0.3.0.js" />
+    <Content Include="lib\bootstrap\css\bootstrap.css" />
+    <Content Include="lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="lib\bootstrap\js\bootstrap.js" />
+    <Content Include="lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="lib\calendar-conf-events.js" />
+    <Content Include="lib\chart-master\Chart.js" />
+    <Content Include="lib\chartjs-conf.js" />
+    <Content Include="lib\ckeditor\ckeditor.js" />
+    <Content Include="lib\common-scripts.js" />
+    <Content Include="lib\dropzone\css\dropzone.css" />
+    <Content Include="lib\dropzone\dropzone.js" />
+    <Content Include="lib\dropzone\images\spritemap%402x.png" />
+    <Content Include="lib\dropzone\images\spritemap.png" />
+    <Content Include="lib\easy-pie-chart.js" />
+    <Content Include="lib\fancybox\jquery.fancybox.css" />
+    <Content Include="lib\fancybox\jquery.fancybox.js" />
+    <Content Include="lib\file-uploader\css\jquery.fileupload-noscript.css" />
+    <Content Include="lib\file-uploader\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="lib\file-uploader\css\jquery.fileupload-ui.css" />
+    <Content Include="lib\file-uploader\css\jquery.fileupload.css" />
+    <Content Include="lib\file-uploader\img\loading.gif" />
+    <Content Include="lib\file-uploader\img\progressbar.gif" />
+    <Content Include="lib\file-uploader\js\cors\jquery.xdr-transport.js" />
+    <Content Include="lib\file-uploader\js\jquery.fileupload-audio.js" />
+    <Content Include="lib\file-uploader\js\jquery.fileupload-image.js" />
+    <Content Include="lib\file-uploader\js\jquery.fileupload-process.js" />
+    <Content Include="lib\file-uploader\js\jquery.fileupload-ui.js" />
+    <Content Include="lib\file-uploader\js\jquery.fileupload-validate.js" />
+    <Content Include="lib\file-uploader\js\jquery.fileupload-video.js" />
+    <Content Include="lib\file-uploader\js\jquery.fileupload.js" />
+    <Content Include="lib\file-uploader\js\jquery.iframe-transport.js" />
+    <Content Include="lib\file-uploader\js\main.js" />
+    <Content Include="lib\file-uploader\js\vendor\jquery.ui.widget.js" />
+    <Content Include="lib\flotchart-conf.js" />
+    <Content Include="lib\flot\jquery.flot.crosshair.js" />
+    <Content Include="lib\flot\jquery.flot.js" />
+    <Content Include="lib\flot\jquery.flot.pie.js" />
+    <Content Include="lib\flot\jquery.flot.resize.js" />
+    <Content Include="lib\flot\jquery.flot.stack.js" />
+    <Content Include="lib\font-awesome\css\font-awesome.css" />
+    <Content Include="lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="lib\form-component.js" />
+    <Content Include="lib\form-validation-script.js" />
+    <Content Include="lib\fullcalendar\bootstrap-fullcalendar.css" />
+    <Content Include="lib\fullcalendar\fullcalendar.min.js" />
+    <Content Include="lib\google-maps\data\points.js" />
+    <Content Include="lib\google-maps\maplace.js" />
+    <Content Include="lib\gritter-conf.js" />
+    <Content Include="lib\gritter\css\jquery.gritter.css" />
+    <Content Include="lib\gritter\css\jquery.gritter0.css" />
+    <Content Include="lib\gritter\images\gritter-light.png" />
+    <Content Include="lib\gritter\images\gritter-long.png" />
+    <Content Include="lib\gritter\images\gritter.png" />
+    <Content Include="lib\gritter\images\ie-spacer.gif" />
+    <Content Include="lib\gritter\js\jquery.gritter.js" />
+    <Content Include="lib\jquery-easy-pie-chart\jquery.easy-pie-chart.css" />
+    <Content Include="lib\jquery-easy-pie-chart\jquery.easy-pie-chart.js" />
+    <Content Include="lib\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="lib\jquery.backstretch.min.js" />
+    <Content Include="lib\jquery.dcjqaccordion.2.7.js" />
+    <Content Include="lib\jquery.nicescroll.js" />
+    <Content Include="lib\jquery.scrollTo.min.js" />
+    <Content Include="lib\jquery.sparkline.js" />
+    <Content Include="lib\jquery.tagsinput.js" />
+    <Content Include="lib\jquery.ui.touch-punch.min.js" />
+    <Content Include="lib\jquery\jquery.js" />
+    <Content Include="lib\jquery\jquery.min.js" />
+    <Content Include="lib\morris-conf.js" />
+    <Content Include="lib\morris\morris.min.js" />
+    <Content Include="lib\php-mail-form\validate.js" />
+    <Content Include="lib\raphael\raphael.min.js" />
+    <Content Include="lib\sparkline-chart.js" />
+    <Content Include="lib\tasks.js" />
+    <Content Include="lib\xchart\d3.v3.min.js" />
+    <Content Include="lib\xchart\xcharts.css" />
+    <Content Include="lib\xchart\xcharts.min.js" />
+    <Content Include="lib\zabuto_calendar.js" />
+    <Content Include="Scripts\bootstrap-switch.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\octin_sports_rg.ttf" />
+    <Content Include="Content\style.css.map" />
+    <Content Include="Content\style.scss" />
+    <Content Include="fonts\fa-brands-400.eot" />
+    <Content Include="fonts\fa-brands-400.ttf" />
+    <Content Include="fonts\fa-brands-400.woff" />
+    <Content Include="fonts\fa-brands-400.woff2" />
+    <Content Include="fonts\fa-regular-400.eot" />
+    <Content Include="fonts\fa-regular-400.ttf" />
+    <Content Include="fonts\fa-regular-400.woff" />
+    <Content Include="fonts\fa-regular-400.woff2" />
+    <Content Include="fonts\fa-solid-900.eot" />
+    <Content Include="fonts\fa-solid-900.ttf" />
+    <Content Include="fonts\fa-solid-900.woff" />
+    <Content Include="fonts\fa-solid-900.woff2" />
+    <Content Include="lib\advanced-datatable\images\Sorting icons.psd" />
+    <Content Include="lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="lib\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="lib\font-awesome\fonts\FontAwesome.otf" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\index.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\particles.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccueilController.cs" />
+    <Compile Include="Controllers\BesoinController.cs" />
+    <Compile Include="Controllers\DonateurController.cs" />
+    <Compile Include="Controllers\EvenementController.cs" />
+    <Compile Include="Controllers\GestionController.cs" />
+    <Compile Include="Controllers\OrphelinatController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdministrateurModel.cs" />
+    <Compile Include="Models\BesoinModel.cs" />
+    <Compile Include="Models\ConnexionModel.cs" />
+    <Compile Include="Models\DonateurModel.cs" />
+    <Compile Include="Models\EvenementModel.cs" />
+    <Compile Include="Models\OrphelinatModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Accueil\Index.cshtml" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\Orphelinat\Connexion.cshtml" />
+    <Content Include="Views\Orphelinat\Enregistrer.cshtml" />
+    <Content Include="Views\Gestion\Index.cshtml" />
+    <Content Include="Views\Besoin\Lister.cshtml" />
+    <Content Include="Views\Besoin\Editer.cshtml" />
+    <Content Include="Views\Besoin\ListeSupprimer.cshtml" />
+    <Content Include="Views\Besoin\ListeEditer.cshtml" />
+    <Content Include="Views\Evenement\ListeSupprimer.cshtml" />
+    <Content Include="Views\Evenement\Editer.cshtml" />
+    <Content Include="Views\Evenement\ListeEditer.cshtml" />
+    <Content Include="Views\Evenement\Lister.cshtml" />
+    <Content Include="Views\Donateur\Lister.cshtml" />
+    <Content Include="Views\Donateur\Editer.cshtml" />
+    <Content Include="Views\Donateur\ListeSupprimer.cshtml" />
+    <Content Include="Views\Accueil\Don.cshtml" />
+    <Content Include="Views\Accueil\DetailsOrphelinat.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -110,9 +371,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Entity\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

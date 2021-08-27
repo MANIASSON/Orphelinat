@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Orphelinat.Web.Models.BesoinModel>
+
+@{
+    ViewBag.Title = "Lister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lister</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Libele)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Libele)
+        </td>
+    </tr>
+}
+
+</table>

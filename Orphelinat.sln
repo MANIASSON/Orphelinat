@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orphelinat.Web", "Orphelinat.Web\Orphelinat.Web.csproj", "{122BE72F-66FB-492F-BD35-B32C3E451FDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orphelinat.Service", "Orphelinat.Service\Orphelinat.Service.csproj", "{3B758A92-31F1-4290-8FF6-A1BF1023A846}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{122BE72F-66FB-492F-BD35-B32C3E451FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{122BE72F-66FB-492F-BD35-B32C3E451FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{122BE72F-66FB-492F-BD35-B32C3E451FDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B758A92-31F1-4290-8FF6-A1BF1023A846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B758A92-31F1-4290-8FF6-A1BF1023A846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B758A92-31F1-4290-8FF6-A1BF1023A846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B758A92-31F1-4290-8FF6-A1BF1023A846}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

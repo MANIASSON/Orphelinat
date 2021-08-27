@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OrphelinatModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administrateur">
+          <Key>
+            <PropertyRef Name="IdAdministrateur" />
+          </Key>
+          <Property Name="IdAdministrateur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="MotDePasse" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Besoin">
+          <Key>
+            <PropertyRef Name="IdBesoin" />
+          </Key>
+          <Property Name="IdBesoin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libele" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="IdOrphelinat" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Donateur">
+          <Key>
+            <PropertyRef Name="IdDonateur" />
+          </Key>
+          <Property Name="IdDonateur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Prenom" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Telephone" Type="int" Nullable="false" />
+          <Property Name="NatureDon" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="IdOrphelinat" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Evenement">
+          <Key>
+            <PropertyRef Name="IdEvenement" />
+          </Key>
+          <Property Name="IdEvenement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libele" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateDebut" Type="date" Nullable="false" />
+          <Property Name="DateFin" Type="date" Nullable="false" />
+          <Property Name="IdOrphelinat" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orphelinat">
+          <Key>
+            <PropertyRef Name="IdOrphelinat" />
+          </Key>
+          <Property Name="IdOrphelinat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="MotDePasse" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Telephone" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Adresse" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Devise" Type="varchar" MaxLength="255" />
+          <Property Name="DateCreation" Type="date" Nullable="false" />
+          <Property Name="Image" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FKBesoin986491">
+          <End Role="Orphelinat" Type="Self.Orphelinat" Multiplicity="1" />
+          <End Role="Besoin" Type="Self.Besoin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orphelinat">
+              <PropertyRef Name="IdOrphelinat" />
+            </Principal>
+            <Dependent Role="Besoin">
+              <PropertyRef Name="IdOrphelinat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKDonateur674120">
+          <End Role="Orphelinat" Type="Self.Orphelinat" Multiplicity="1" />
+          <End Role="Donateur" Type="Self.Donateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orphelinat">
+              <PropertyRef Name="IdOrphelinat" />
+            </Principal>
+            <Dependent Role="Donateur">
+              <PropertyRef Name="IdOrphelinat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKEvenement922500">
+          <End Role="Orphelinat" Type="Self.Orphelinat" Multiplicity="1" />
+          <End Role="Evenement" Type="Self.Evenement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orphelinat">
+              <PropertyRef Name="IdOrphelinat" />
+            </Principal>
+            <Dependent Role="Evenement">
+              <PropertyRef Name="IdOrphelinat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OrphelinatModelStoreContainer">
+          <EntitySet Name="Administrateur" EntityType="Self.Administrateur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Besoin" EntityType="Self.Besoin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Donateur" EntityType="Self.Donateur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evenement" EntityType="Self.Evenement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orphelinat" EntityType="Self.Orphelinat" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FKBesoin986491" Association="Self.FKBesoin986491">
+            <End Role="Orphelinat" EntitySet="Orphelinat" />
+            <End Role="Besoin" EntitySet="Besoin" />
+          </AssociationSet>
+          <AssociationSet Name="FKDonateur674120" Association="Self.FKDonateur674120">
+            <End Role="Orphelinat" EntitySet="Orphelinat" />
+            <End Role="Donateur" EntitySet="Donateur" />
+          </AssociationSet>
+          <AssociationSet Name="FKEvenement922500" Association="Self.FKEvenement922500">
+            <End Role="Orphelinat" EntitySet="Orphelinat" />
+            <End Role="Evenement" EntitySet="Evenement" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OrphelinatModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administrateur">
+          <Key>
+            <PropertyRef Name="IdAdministrateur" />
+          </Key>
+          <Property Name="IdAdministrateur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MotDePasse" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Besoin">
+          <Key>
+            <PropertyRef Name="IdBesoin" />
+          </Key>
+          <Property Name="IdBesoin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libele" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdOrphelinat" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Orphelinat" Relationship="Self.FKBesoin986491" FromRole="Besoin" ToRole="Orphelinat" />
+        </EntityType>
+        <EntityType Name="Donateur">
+          <Key>
+            <PropertyRef Name="IdDonateur" />
+          </Key>
+          <Property Name="IdDonateur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prenom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telephone" Type="Int32" Nullable="false" />
+          <Property Name="NatureDon" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdOrphelinat" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Orphelinat" Relationship="Self.FKDonateur674120" FromRole="Donateur" ToRole="Orphelinat" />
+        </EntityType>
+        <EntityType Name="Evenement">
+          <Key>
+            <PropertyRef Name="IdEvenement" />
+          </Key>
+          <Property Name="IdEvenement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libele" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateDebut" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateFin" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdOrphelinat" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Orphelinat" Relationship="Self.FKEvenement922500" FromRole="Evenement" ToRole="Orphelinat" />
+        </EntityType>
+        <EntityType Name="Orphelinat">
+          <Key>
+            <PropertyRef Name="IdOrphelinat" />
+          </Key>
+          <Property Name="IdOrphelinat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MotDePasse" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telephone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adresse" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Devise" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreation" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Besoins" Relationship="Self.FKBesoin986491" FromRole="Orphelinat" ToRole="Besoin" />
+          <NavigationProperty Name="Donateurs" Relationship="Self.FKDonateur674120" FromRole="Orphelinat" ToRole="Donateur" />
+          <NavigationProperty Name="Evenements" Relationship="Self.FKEvenement922500" FromRole="Orphelinat" ToRole="Evenement" />
+        </EntityType>
+        <Association Name="FKBesoin986491">
+          <End Role="Orphelinat" Type="Self.Orphelinat" Multiplicity="1" />
+          <End Role="Besoin" Type="Self.Besoin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orphelinat">
+              <PropertyRef Name="IdOrphelinat" />
+            </Principal>
+            <Dependent Role="Besoin">
+              <PropertyRef Name="IdOrphelinat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKDonateur674120">
+          <End Role="Orphelinat" Type="Self.Orphelinat" Multiplicity="1" />
+          <End Role="Donateur" Type="Self.Donateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orphelinat">
+              <PropertyRef Name="IdOrphelinat" />
+            </Principal>
+            <Dependent Role="Donateur">
+              <PropertyRef Name="IdOrphelinat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKEvenement922500">
+          <End Role="Orphelinat" Type="Self.Orphelinat" Multiplicity="1" />
+          <End Role="Evenement" Type="Self.Evenement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orphelinat">
+              <PropertyRef Name="IdOrphelinat" />
+            </Principal>
+            <Dependent Role="Evenement">
+              <PropertyRef Name="IdOrphelinat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OrphelinatEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrateurs" EntityType="Self.Administrateur" />
+          <EntitySet Name="Besoins" EntityType="Self.Besoin" />
+          <EntitySet Name="Donateurs" EntityType="Self.Donateur" />
+          <EntitySet Name="Evenements" EntityType="Self.Evenement" />
+          <EntitySet Name="Orphelinats" EntityType="Self.Orphelinat" />
+          <AssociationSet Name="FKBesoin986491" Association="Self.FKBesoin986491">
+            <End Role="Orphelinat" EntitySet="Orphelinats" />
+            <End Role="Besoin" EntitySet="Besoins" />
+          </AssociationSet>
+          <AssociationSet Name="FKDonateur674120" Association="Self.FKDonateur674120">
+            <End Role="Orphelinat" EntitySet="Orphelinats" />
+            <End Role="Donateur" EntitySet="Donateurs" />
+          </AssociationSet>
+          <AssociationSet Name="FKEvenement922500" Association="Self.FKEvenement922500">
+            <End Role="Orphelinat" EntitySet="Orphelinats" />
+            <End Role="Evenement" EntitySet="Evenements" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OrphelinatModelStoreContainer" CdmEntityContainer="OrphelinatEntities">
+          <EntitySetMapping Name="Administrateurs">
+            <EntityTypeMapping TypeName="OrphelinatModel.Administrateur">
+              <MappingFragment StoreEntitySet="Administrateur">
+                <ScalarProperty Name="IdAdministrateur" ColumnName="IdAdministrateur" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MotDePasse" ColumnName="MotDePasse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Besoins">
+            <EntityTypeMapping TypeName="OrphelinatModel.Besoin">
+              <MappingFragment StoreEntitySet="Besoin">
+                <ScalarProperty Name="IdBesoin" ColumnName="IdBesoin" />
+                <ScalarProperty Name="Libele" ColumnName="Libele" />
+                <ScalarProperty Name="IdOrphelinat" ColumnName="IdOrphelinat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Donateurs">
+            <EntityTypeMapping TypeName="OrphelinatModel.Donateur">
+              <MappingFragment StoreEntitySet="Donateur">
+                <ScalarProperty Name="IdDonateur" ColumnName="IdDonateur" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="NatureDon" ColumnName="NatureDon" />
+                <ScalarProperty Name="IdOrphelinat" ColumnName="IdOrphelinat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Evenements">
+            <EntityTypeMapping TypeName="OrphelinatModel.Evenement">
+              <MappingFragment StoreEntitySet="Evenement">
+                <ScalarProperty Name="IdEvenement" ColumnName="IdEvenement" />
+                <ScalarProperty Name="Libele" ColumnName="Libele" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+                <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+                <ScalarProperty Name="IdOrphelinat" ColumnName="IdOrphelinat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orphelinats">
+            <EntityTypeMapping TypeName="OrphelinatModel.Orphelinat">
+              <MappingFragment StoreEntitySet="Orphelinat">
+                <ScalarProperty Name="IdOrphelinat" ColumnName="IdOrphelinat" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MotDePasse" ColumnName="MotDePasse" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="Devise" ColumnName="Devise" />
+                <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

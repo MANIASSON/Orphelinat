@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Orphelinat.Web.Models.EvenementModel>
+
+@{
+    ViewBag.Title = "Liste à supprimer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Supprimer</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Libele)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateDebut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateFin)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Libele)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateDebut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateFin)
+        </td>
+        <td>
+            @Html.ActionLink("Supprimer", "Supprimer", new { Id = item.IdEvenement })
+        </td>
+    </tr>
+}
+
+</table>

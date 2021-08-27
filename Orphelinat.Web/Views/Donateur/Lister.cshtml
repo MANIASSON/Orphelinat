@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Orphelinat.Web.Models.DonateurModel>
+
+@{
+    ViewBag.Title = "Lister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lister</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NatureDon)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telephone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NatureDon)
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,328 @@
+﻿@model IEnumerable<Orphelinat.Web.Models.OrphelinatModel>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title> Orphelinat </title>
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bootstrap.css")" />
+    <!-- font awesome style -->
+    <link href="@Url.Content("~/Content/font-awesome.min.css")" rel="stylesheet" />
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="@Url.Content("~/Content/responsive.css")" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="hero_area">
+        <div class="hero_bg_box">
+            <img src="@Url.Content("~/Content/images/hero-bg.png")" alt="">
+        </div>
+        <!-- header section strats -->
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                    <a class="navbar-brand" href="#">
+                        <span>
+                            <img src="@Url.Content("~/Content/images/logo.png")" alt="">
+                        </span>
+                    </a>
+                    <div class="" id="">
+                        <div class="container">
+                            <div class=" mr-auto flex-column flex-lg-row align-items-center">
+                                <ul class="navbar-nav justify-content-between ">
+                                    <div class="User_option">
+                                    <li class="">
+                                        <a class="" href="#">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                            </div>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="custom_menu-btn">
+                        <button onclick="openNav()">
+                            <span class="s-1"> </span>
+                            <span class="s-2"> </span>
+                            <span class="s-3"> </span>
+                        </button>
+                    </div>
+                    <div id="myNav" class="overlay">
+                        <div class="overlay-content">
+                            <a href="#">Menu</a>
+                            <a href="#">A Propos</a>
+                            <a href="@Url.Action("Connexion", "Orphelinat")">Se connecter</a>
+                            <a href="@Url.Action("Enregistrer", "Orphelinat")">S'enregistrer</a>
+                            <a href="#">Contactez-nous</a>
+                        </div>
+                    </div>
+            </div>
+            </nav>
+    </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+        <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="detail-box">
+                                    <h1>
+                                        Over Soft <br />
+                                        Solution
+                                    </h1>
+                                    <a href="#" class="">
+                                        Plus
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="detail-box">
+                                    <h1>
+                                        Over Soft <br />
+                                        Solution
+                                    </h1>
+                                    <a href="" class="">
+                                        Plus
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ol class="carousel-indicators">
+                <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+                <li data-target="#customCarousel1" data-slide-to="1"></li>
+            </ol>
+        </div>
+    </section>
+    <!-- end slider section -->
+    </div>
+
+    <!-- veg section -->
+
+    <section class="veg_section layout_padding">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Nos Orphelinats
+                </h2>
+                <p>
+                    Bienvenue dans notre page d'acceuil, tout ce que vous aurez besoin comme informations sur ces orphelinats elles y sont.
+                </p>
+            </div>
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="box">
+                            <a href="@Url.Action("DetailsOrphelinat", new { IdOrphelinat = item.IdOrphelinat })">
+                                <div class="img-box">
+                                    <img src="@item.Image" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    Orphelinat @item.Nom
+                                    <div class="price_box">
+                                        <h6 class="price_heading">
+                                            <span>@item.Adresse</span>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="btn-box">
+                <a href="#">
+                    Voir plus
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- end veg section -->
+    <!-- about section -->
+
+    <section class="about_section ">
+        <div class="about_bg_box">
+            <img src="@Url.Content("~/Content/images/about-bg.jpg")" alt="">
+        </div>
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-6 ml-auto ">
+                    <div class="detail-box">
+                        <div class="heading_container">
+                            <h2>
+                                Nous fournissons <br>
+                                un service de donation dans ces orphelinats
+                            </h2>
+                        </div>
+                        <p>
+                            Afin de promouvoir l'avenir de ces orphelins, OSS offre un service de dons qui permettra de mieux encadrer ces enfants et ceux dans de bonnes conditions.
+                        </p>
+                        <a href="#" class="mt_20">
+                            Lire Plus
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end about section -->
+    <!-- contact section -->
+    <section class="contact_section layout_padding">
+        <div class="container">
+            <div class="heading_container">
+                <h2>
+                    Contactez-Nous
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form_container contact-form">
+                        <form action="">
+                            <div>
+                                <input type="text" placeholder="Votre Nom" />
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Votre Numero de telephone" />
+                            </div>
+                            <div>
+                                <input type="email" placeholder=" Votre Email" />
+                            </div>
+                            <div>
+                                <input type="text" class="message-box" placeholder="Message" />
+                            </div>
+                            <div class="btn_box">
+                                <button>
+                                    Envoyer
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="map_container">
+                        <div class="map">
+                            <div id="googleMap"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end contact section -->
+    <!-- footer section -->
+    <section class="container-fluid footer_section">
+        <div class="container">
+            <div class="row ">
+                <div class="col-sm-6 col-md-4 col-lg-3 footer-col">
+                    <div class="footer_detail">
+                        <a href="index.html">
+                            <h4>
+                                Over Soft Solution
+                            </h4>
+                        </a>
+                        <p>
+                            Soluta odit exercitationem rerum aperiam eos consectetur impedit delectus qui reiciendis, distinctio, asperiores fuga labore a? Magni natus.
+                        </p>
+                        <div class="social_box">
+                            <a href="">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mx-auto footer-col">
+                    <h4>
+                        Contactez-Nous
+                    </h4>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit
+                    </p>
+                    <div class="contact_nav">
+                        <a href="">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span>
+                                Location
+                            </span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span>
+                                Call : +01 123455678990
+                            </span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span>
+                                Email : demo@gmail.com
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 footer-col">
+                    <div class="footer_form">
+                        <h4>
+                            S'inscrire
+                        </h4>
+                        <form action="">
+                            <input type="text" placeholder="Entrer Votre Email" />
+                            <button type="submit">
+                                Souscrire
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-info">
+            </div>
+    </section>
+    <!-- end  footer section -->
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-3.4.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/custom.js")"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+    <!-- End Google Map -->
+</body>
+
+</html>
